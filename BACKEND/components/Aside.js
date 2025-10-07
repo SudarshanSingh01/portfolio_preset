@@ -5,8 +5,11 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect, useStae } from "react";
 import { set } from "mongoose";
-import { MdWorkOutline } from "react-icons/md";
+import { SiFiles } from "react-icons/si";
 import { LiaOpencart } from "react-icons/lia";
+import { SiPhotopea } from "react-icons/si";
+import { MdOutlineConnectWithoutContact } from "react-icons/md";
+import { SlSettings } from "react-icons/sl";
 
 
 
@@ -50,7 +53,7 @@ export default function Aside() {
                                                 {activeLink === '/blogs' && (
                                                         <ul>
                                                                 <Link href='/blogs'><li>All Blogs</li></Link>
-                                                                <Link href='/blogs/draft'><li>Draft Blogs</li></Link>
+                                                                <Link href='/blogs/draftblogs'><li>Draft Blogs</li></Link>
                                                                 <Link href='/blogs/addblog'><li>Add Blog</li></Link>
                                                         </ul>
                                                 )}
@@ -59,14 +62,14 @@ export default function Aside() {
                                         <li className={activeLink === '/projects' ? 'navactive flex-col flex-left' : 'flex-col flex-left'} onClick={() => handleLinkClick('/projects')}>
 
                                                 <div className="flex gap-1">
-                                                        <MdWorkOutline />
+                                                        <SiFiles />
                                                         <span> Projects</span>
 
                                                 </div>
                                                 {activeLink === '/projects' && (
                                                         <ul>
                                                                 <Link href='/projects'><li>All Projects</li></Link>
-                                                                <Link href='/projects/draft'><li>Draft Projects</li></Link>
+                                                                <Link href='/projects/draftprojects'><li>Draft Projects</li></Link>
                                                                 <Link href='/projects/addprojects'><li>Add Projects</li></Link>
                                                         </ul>
                                                 )}
@@ -81,13 +84,40 @@ export default function Aside() {
                                                 </div>
                                                 {activeLink === '/Shops' && (
                                                         <ul>
-                                                                <Link href='/Products'><li>All Products</li></Link>
-                                                                <Link href='/Products/draft'><li>Draft Products</li></Link>
-                                                                <Link href='/Products/addProducts'><li>Add Products</li></Link>
+                                                                <Link href='/shops'><li>All Products</li></Link>
+                                                                <Link href='/shops/draftshop'><li>Draft Products</li></Link>
+                                                                <Link href='/shops/addProducts'><li>Add Products</li></Link>
                                                         </ul>
                                                 )}
 
                                         </li>
+                                        <li className={activeLink === '/Gallery' ? 'navactive flex-col flex-left' : 'flex-col flex-left'} onClick={() => handleLinkClick('/Gallery')}>
+
+                                                <div className="flex gap-1">
+                                                        <SiPhotopea />
+                                                        <span> Gallery</span>
+
+                                                </div>
+                                                {activeLink === '/Gallery' && (
+                                                        <ul>
+                                                                <Link href='/gallery'><li>All photos</li></Link>
+                                                                <Link href='/gallery/addphotos'><li>Add photos</li></Link>
+                                                        </ul>
+                                                )}
+
+                                        </li>
+                                        <Link href='/contacts'>
+                                                <li className={activeLink === '/contacts' ? 'navactive' : ''} onClick={() => handleLinkClick('/contacts')}>
+                                                        <MdOutlineConnectWithoutContact />
+                                                        <span> Contacts</span>
+                                                </li>
+                                        </Link>
+                                        <Link href='/setting'>
+                                                <li className={activeLink === '/setting' ? 'navactive' : ''} onClick={() => handleLinkClick('/setting')}>
+                                                        <SlSettings />
+                                                        <span>Settings</span>
+                                                </li>
+                                        </Link>
                                 </ul>
                         </aside>
                 </>
