@@ -14,7 +14,7 @@ import { SlSettings } from "react-icons/sl";
 
 
 
-export default function Aside() {
+export default function Aside({asideOpen, handleAsideOpen}) {
         const router = useRouter();
         const [clicked, setClicked] = useState(false);
         const [activeLink, setActiveLink] = useState('/');
@@ -34,7 +34,7 @@ export default function Aside() {
 
         return (
                 <>
-                        <aside className="asideleft active">
+                        <aside className={asideOpen ? 'asideleft active' : 'asideleft'}>
                                 <ul>
                                         <Link href="/">
                                                 <li className="navactive">
@@ -119,6 +119,7 @@ export default function Aside() {
                                                 </li>
                                         </Link>
                                 </ul>
+                                <button className="logoutbtn"> Logout </button>
                         </aside>
                 </>
         );
